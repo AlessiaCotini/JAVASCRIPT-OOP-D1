@@ -1,0 +1,17 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+input, button{
+    background-color: rgba(236, 194, 78, 0.281);
+    border: transparent;
+    height: 20px;
+    padding: 0.5em;
+}
+label{
+    padding: 0.5em;
+    font-style: italic;
+}
+button{
+font-style: oblique;
+font-weight: 800;
+}
