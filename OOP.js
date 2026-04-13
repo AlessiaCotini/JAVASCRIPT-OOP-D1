@@ -27,6 +27,7 @@ user3.sameAgeOrNot(user1);
 
 console.log("ESERCIZIO DUE");
 const petArray = [];
+const results = document.getElementById("results");
 const petNameInput = document.getElementById("petName");
 const ownerNameInput = document.getElementById("ownerName");
 const speciesInput = document.getElementById("species");
@@ -39,15 +40,13 @@ class Pet {
     this.breed = _breed;
   }
   sameOwner(otherPet) {
+    const list = document.createElement("p");
     if (this.ownerName === otherPet.ownerName) {
-      console.log(
-        `${this.petName} e ${otherPet.petName} hanno lo stesso padrone!`,
-      );
+      list.textContent = `${this.petName} e ${otherPet.petName} hanno lo stesso padrone!`;
     } else {
-      console.log(
-        `${this.petName} e ${otherPet.petName} non hanno lo stesso padrone!`,
-      );
+      list.textContent = `${this.petName} e ${otherPet.petName} non hanno lo stesso padrone!`;
     }
+    results.appendChild(list);
   }
 }
 const form = document.getElementById("form");
@@ -60,9 +59,10 @@ form.addEventListener("submit", function (e) {
   const newPet = new Pet(petName, ownerName, species, breed);
   console.log("Pet Saved In Our List", newPet);
   petArray.push(newPet);
-
+  results.innerHTML = "";
   for (let i = 0; i < petArray.length - 1; i++) {
     newPet.sameOwner(petArray[i]);
   }
   form.reset();
 });
+console.log(results);
